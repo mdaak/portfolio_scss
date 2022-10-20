@@ -7,7 +7,7 @@ $background-opacity:0.9;
     transition: all 1.5s ease-out;
 }
 @mixin background {
-    @if $show-home-imge{
+    @if $show-home-image{
         &#bg-img{
             background: $home-image;
             background-attachment: fixed;
