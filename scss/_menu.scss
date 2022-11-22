@@ -32,3 +32,72 @@
         }
     }
 }
+.menu{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+    &.show{
+        visibility: visible;   }
+    &-branding,
+    &-nav{
+        display: flex;
+        flex-flow: column wrap;
+        align-items:center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+    &-nav{
+        margin:0;
+        padding: 0;
+        background: darken($primary-color, 5);
+        list-style: none;
+        transform: translate3d(0,-100%,0);
+        @include easeOut;
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+    &-branding{
+        background: $primary-color;
+        transform: translate3d(0,100%,0);
+        @include easeOut;
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+        .portrait{
+            width: 250px;
+            height: 250px;
+            background: url('https://scontent.fdac116-1.fna.fbcdn.net/v/t39.30808-6/275819852_4828315897215663_3184792918319672899_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHk-FtkcEHGY4JlSNTXh_UJlFUzP-21XJSUVTM_7bVclC3m0mBVz3efZ8_oqjjuF5kkgVyttg_AfATg8z1vTK8H&_nc_ohc=RmphLgk_gRoAX-odo2G&_nc_ht=scontent.fdac116-1.fna&oh=00_AfC_guRV9v3YIyRJBrDKHQ2g4e7rRgXJ4UUnZmu_FP13XA&oe=63820C06');
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+        }
+    }
+    .nav-item{
+        transform: translate3d(600px,0,0);
+        @include easeOut;
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding:  1rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+@for $x from 1 through 4{
+    .nav-item:nth-child(#{$x}){
+        transition-delay: $x * 0.1s;
+    }
+}
