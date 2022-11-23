@@ -83,6 +83,9 @@
         &.show{
             transform: translate3d(0,0,0);
         }
+        &.current >a{
+            color: $secondary-color;
+        }
     }
     .nav-link{
         display: inline-block;
@@ -93,6 +96,10 @@
         font-weight: 300;
         color: #fff;
         text-decoration: none;
+        @include easeOut;
+        &:hover{
+            color: $secondary-color;
+        }
     }
 }
 
